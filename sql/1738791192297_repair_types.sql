@@ -1,0 +1,16 @@
+CREATE TABLE repair_types (
+  id INT NOT NULL AUTO_INCREMENT,
+  type VARCHAR(42) NOT NULL,
+  initial_id INT NULL,
+  description TEXT NOT NULL,
+  time_unit INT NULL,
+  price DECIMAL(20,2) NOT NULL,
+
+  deleted_at TIMESTAMP NULL,
+  updated_at TIMESTAMP NULL,
+  created_at TIMESTAMP NULL default CURRENT_TIMESTAMP,
+  PRIMARY KEY (`id`)
+) ENGINE=INNODB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8;
+
+-- ALTER TABLE repair_types
+--   ADD is_default TINYINT DEFAULT 0 AFTER product_id;

@@ -1,0 +1,148 @@
+@use "../abstract" as *;
+
+$mselect-min-width: 10em;
+
+mselect {
+  content: "";
+  display: block;
+  position: relative;
+  z-index: 300;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding-inline: 16px;
+  height: 60px;
+  gap: 12px;
+
+  mselect-presented {
+    display: block;
+    content: "";
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    width: 100%;
+
+    [mselect-visible-value] {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      font-weight: 600;
+    }
+
+    & > mi::before {
+      display: block;
+      content: "arrow_drop_down";
+      font-size: 24px;
+    }
+  }
+
+  &:not([rounded]) {
+    border-radius: 6px;
+  }
+
+  * {
+    @extend [no-word-wrap];
+  }
+
+  &[mselect-type="menu"] {
+    height: 2.8em;
+    width: 2.8em;
+    padding: 0 !important;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  mselect-dropdown {
+    display: block;
+    position: absolute;
+    overflow: hidden;
+    top: 80%;
+    right: 0;
+    height: 10px;
+    width: 100%;
+    z-index: $ripple-effect-zindex + 1;
+    cursor: default;
+    background: $box;
+    border-radius: 200px;
+    transition: all 0.42s $cubic;
+    opacity: 0;
+    visibility: hidden;
+
+    &[active] {
+      top: 100%;
+      opacity: 1;
+      visibility: visible;
+      border-radius: 4px;
+      box-shadow: var(--mio-theme-elevation-2);
+    }
+
+    [get-size] {
+      min-width: calc($mselect-min-width + 0.3em);
+      max-height: 24em;
+      overflow: auto;
+      transition: none;
+      height: initial;
+      width: initial;
+      position: absolute;
+
+      visibility: hidden;
+      opacity: 0;
+
+      * {
+        pointer-events: none;
+      }
+
+      &[active] {
+        transition: all 0.2s linear;
+        opacity: 1;
+        visibility: visible;
+
+        * {
+          pointer-events: initial;
+        }
+      }
+    }
+
+    .msd__inr {
+      padding-block: 8px;
+
+      mselect-option {
+        content: "";
+        cursor: pointer;
+        height: 48px;
+        padding-inline: 12px;
+        display: flex;
+        gap: 12px;
+        align-items: center;
+
+        &:hover {
+          background: $slight-hover;
+        }
+      }
+    }
+  }
+
+  &[align] {
+    &[align="left"] {
+      mselect-dropdown {
+        left: 0;
+      }
+    }
+
+    &[align="right"] {
+      mselect-dropdown {
+        right: 0;
+      }
+    }
+
+    &[align="center"] {
+      mselect-dropdown {
+        left: 50%;
+        translate: -50% 0;
+      }
+    }
+  }
+}

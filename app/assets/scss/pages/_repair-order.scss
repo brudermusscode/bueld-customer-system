@@ -1,0 +1,337 @@
+@use "../abstract" as *;
+
+header[order] {
+  padding-block: 82px;
+
+  step-progress {
+    content: "";
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: $gap-std;
+    max-width: $content-width-wide;
+
+    [step-progress-line] {
+      font-size: $font-size-mid;
+      opacity: 0.6;
+
+      &::before {
+        content: "trending_flat";
+      }
+    }
+
+    step-progress-option {
+      content: "";
+      padding-block: 12px;
+      border-radius: 32px;
+      padding-inline: 12px 24px;
+
+      mi,
+      .circle-loader {
+        display: none;
+      }
+
+      mi {
+        height: 1.2em;
+        min-width: 1.2em;
+        background: $box;
+        color: $green;
+        font-weight: 800;
+      }
+
+      &[active] {
+        background: $box;
+
+        .circle-loader {
+          display: block;
+        }
+      }
+
+      &[done] {
+        mi {
+          display: flex;
+        }
+
+        .circle-loader {
+          display: none;
+        }
+      }
+    }
+  }
+}
+
+[show-active] {
+  display: none;
+}
+
+[active] {
+  & > [show-active] {
+    display: initial;
+
+    &[show-done] {
+      display: initial !important;
+
+      &[show-done="flex"] {
+        display: flex !important;
+      }
+    }
+  }
+
+  & > [show-active="flex"] {
+    display: flex;
+  }
+}
+
+[repair-order] {
+  section[customer] {
+    min-width: 400px;
+
+    mi[done] {
+      display: none;
+      color: $green;
+      height: 1.6em;
+      width: 1.6em;
+      border-radius: 50%;
+      align-items: center;
+      justify-content: center;
+      background: $green-light;
+      color: $green-dark;
+    }
+
+    [show-done],
+    [customer-edit],
+    [address-info] {
+      display: none;
+    }
+
+    &[done] {
+      mi[done],
+      [show-done] {
+        display: flex;
+      }
+
+      [hide-done] {
+        display: none;
+      }
+    }
+
+    &[active] {
+      [customer-edit],
+      [address-info] {
+        display: flex;
+      }
+
+      [hide-active] {
+        display: none;
+      }
+    }
+  }
+}
+
+[leasing-outer] {
+  [leasing-outer-show-active] {
+    display: none;
+  }
+
+  &[active] {
+    [leasing-outer-show-active] {
+      display: block;
+    }
+  }
+}
+
+timeline-heading {
+  transition: $trans-cubic;
+  width: calc(100% + 2.4em);
+  padding-inline: 1.6em 0.8em;
+  margin-left: -1.2em;
+  border-radius: 32px;
+  // position: sticky;
+  top: 8px;
+  z-index: 100;
+  height: 90px;
+
+  [title] {
+    transition: $trans-cubic;
+    font-size: 2.4em;
+    font-weight: 800;
+  }
+
+  &[scrolled="true"] {
+    background: $box;
+    box-shadow: var(--mio-theme-elevation-1);
+
+    [title] {
+      font-size: 1.8em;
+    }
+  }
+}
+
+timeline {
+  display: block;
+  content: "";
+  position: relative;
+  padding-left: 3.2em;
+  display: flex;
+  flex-direction: column;
+  gap: $gap-mid;
+
+  timeline-line {
+    display: block;
+    content: "";
+    position: absolute;
+    height: 100%;
+    width: 4px;
+    left: 0.7em;
+    top: 1.2em;
+    background: $hover;
+    border-radius: 24px;
+  }
+
+  timeline-sub-icon {
+    $size: 52px;
+
+    position: absolute;
+    left: calc(-1 * ($size * 1.4));
+    top: 50%;
+    translate: 0 -50%;
+    height: $size;
+    width: $size;
+    // border: 1px solid rgba(0, 0, 0, 0.24);
+    box-shadow: 0 0 0 8px $bg;
+    background: $bg;
+    color: $hover;
+  }
+
+  timeline-option {
+    position: relative;
+
+    timeline-dot {
+      position: absolute;
+      height: 3.2em;
+      width: 3.2em;
+      left: -4em;
+      top: 22px;
+      background: $bg;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      .circle-loader {
+        position: absolute;
+        height: calc(100% - 18px);
+        width: calc(100% - 18px);
+        top: 50%;
+        left: 50%;
+        translate: -50% -50%;
+      }
+
+      mi {
+        display: block;
+
+        &::before {
+          content: "steppers";
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          margin-left: 0;
+          margin-top: 0;
+          color: $hover;
+          height: 1em;
+          width: 1em;
+          border-radius: 50%;
+          font-size: $font-size-midler;
+          font-weight: 800;
+        }
+      }
+
+      .circle-loader {
+        border-color: $company3-color;
+        display: none;
+      }
+    }
+
+    &[active] {
+      timeline-dot {
+        top: -0.72em;
+
+        mi::before {
+          content: "ink_pen";
+          background: $active;
+          height: 1.6em;
+          width: 1.6em;
+          border-width: 8px;
+          background: $bg;
+          color: $company3-color;
+        }
+
+        .circle-loader {
+          display: block;
+        }
+      }
+    }
+
+    &[done] {
+      timeline-dot {
+        top: 22px;
+
+        mi {
+          display: flex;
+
+          &::before {
+            content: "done";
+            color: $light;
+            background: $green;
+            height: 1.6em;
+            width: 1.6em;
+          }
+        }
+      }
+    }
+
+    &[error] {
+      timeline-dot {
+        top: 22px;
+
+        mi {
+          display: flex;
+
+          &::before {
+            content: "priority_high";
+            color: $light;
+            background: $red;
+            height: 1.6em;
+            width: 1.6em;
+          }
+        }
+      }
+    }
+
+    &[warning] {
+      timeline-dot {
+        top: 22px;
+
+        mi {
+          display: flex;
+
+          &::before {
+            content: "remove";
+            color: $light;
+            background: $orange;
+            height: 1.6em;
+            width: 1.6em;
+          }
+        }
+      }
+    }
+  }
+}
+
+[repair-order-type="from-id"] {
+  [input="price"] {
+    input {
+      pointer-events: none;
+      opacity: 0.6;
+    }
+  }
+}

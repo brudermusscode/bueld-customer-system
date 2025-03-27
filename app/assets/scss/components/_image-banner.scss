@@ -1,0 +1,80 @@
+@use "../abstract" as *;
+
+image-banner {
+  display: block;
+  content: "";
+  position: relative;
+  overflow: hidden;
+
+  &[game] {
+    height: 20em;
+    max-height: 20em;
+    width: 100%;
+  }
+
+  &[landing] {
+    width: 100%;
+    padding-top: 45%;
+  }
+
+  &[chooser-option] {
+    height: 12em;
+    max-height: 12em;
+    width: 100%;
+    cursor: pointer;
+
+    &:hover {
+      box-shadow: var(--mio-theme-elevation-1);
+    }
+
+    .active-indicator {
+      display: flex;
+      position: absolute;
+      bottom: 1.2em;
+      right: 1.8em;
+      z-index: 3;
+      opacity: 0;
+      transition: $trans-cubic;
+
+      mi {
+        height: 1.4em;
+        width: 1.4em;
+        border-radius: 50%;
+        border: 1px solid white;
+      }
+    }
+
+    &[active] {
+      box-shadow: var(--mio-theme-elevation-2);
+
+      .active-indicator {
+        opacity: 1;
+        bottom: 1.8em;
+      }
+    }
+  }
+
+  .info {
+    position: absolute;
+    bottom: 0;
+    padding: 2.4em;
+    z-index: 2;
+    color: $text-invert;
+  }
+}
+
+[cover-fade] {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  z-index: 1;
+  background: $hover;
+}
+
+[title-inline] {
+  padding-inline: 1.6em;
+  position: relative;
+  z-index: 20;
+}

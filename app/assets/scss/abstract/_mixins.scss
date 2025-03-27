@@ -1,0 +1,114 @@
+@use "variables" as *;
+@use "sizes" as *;
+
+@mixin clickable {
+  position: relative;
+
+  &:not([disabled]) {
+    cursor: pointer;
+  }
+
+  &:hover {
+    box-shadow: var(--mio-theme-elevation-2);
+  }
+
+  &[elevated] {
+    &:hover {
+      box-shadow: var(--mio-theme-elevation-3);
+    }
+
+    &[elevated="mid"] {
+      &:hover {
+        box-shadow: var(--mio-theme-elevation-3);
+      }
+    }
+  }
+
+  &:active {
+    box-shadow: none;
+  }
+}
+
+@mixin flRowBetween {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+@mixin flRow {
+  display: flex;
+  flex-direction: row;
+}
+
+@mixin center-icon {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+
+@mixin almidhoriz {
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+@mixin align-center-h {
+  left: 50%;
+  transform: translateX(-50%);
+  -webkit-transform: translateX(-50%);
+  -moz-transform: translateX(-50%);
+  -ms-transform: translateX(-50%);
+  -o-transform: translateX(-50%);
+}
+
+@mixin align-center-v {
+  top: 50%;
+  transform: translateY(-50%);
+  -webkit-transform: translateY(-50%);
+  -moz-transform: translateY(-50%);
+  -ms-transform: translateY(-50%);
+  -o-transform: translateY(-50%);
+}
+
+@mixin align-center-screen {
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  -webkit-transform: translate(-50%, -50%);
+  -moz-transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  -o-transform: translate(-50%, -50%);
+}
+
+@mixin image_fade_before {
+  &:before {
+    display: block;
+    content: "";
+    height: 100%;
+    width: 100%;
+    position: absolute;
+    z-index: 3;
+    opacity: 0.38;
+    background: #000;
+  }
+}
+
+@mixin fit_box {
+  height: 100%;
+  width: 100%;
+  top: 0;
+  left: 0;
+  position: absolute;
+}
+
+@mixin hide_tablet {
+  @media screen and (max-width: $tablet-max-width) {
+    display: none !important;
+  }
+}
+
+@mixin hide_mobile {
+  @media screen and (max-width: $mobile-max-width) {
+    display: none !important;
+  }
+}

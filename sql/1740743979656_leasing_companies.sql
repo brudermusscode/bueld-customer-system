@@ -1,0 +1,2 @@
+UPDATE leasing_companies SET web_url = "https://de.mobility-services.bike/app/login" WHERE name = "Lease a Bike";
+UPDATE leasing_companies SET web_url = "https://portal.businessbike.de" WHERE name = "BusinessBike";

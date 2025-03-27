@@ -1,0 +1,69 @@
+FROM ubuntu:22.04
+
+LABEL MAINTAINER="brudermusscode <justin@heia.kim>"
+
+ENV DEBIAN_FRONTEND=noninteractive
+
+RUN apt update -q && \
+    apt install -y \
+    apt-transport-https \
+    lsb-release \
+    software-properties-common \
+    gnupg2 \
+    curl \
+    ca-certificates \
+    ubuntu-keyring \
+    libxml2-dev \
+    libzip-dev \
+    libpng-dev \
+    libfreetype-dev \
+    libicu-dev \
+    libcurl4-openssl-dev \
+    git \
+    zip \
+    unzip
+
+# Add php & nginx repository
+RUN add-apt-repository ppa:ondrej/php && \
+    add-apt-repository ppa:ondrej/nginx-mainline
+
+# Install nginx & php
+RUN apt update -q && \
+    apt install -y \
+    nginx \
+    php8.4 \
+    php8.4-cli \
+    php8.4-fpm \
+    php8.4-common \
+    php8.4-bz2 \
+    php8.4-curl \
+    php8.4-mbstring \
+    php8.4-intl \
+    php8.4-mysql \
+    php8.4-xml \
+    php8.4-gd \
+    php8.4-zip
+
+RUN rm -f /var/log/nginx/access.log /var/log/nginx/error.log && \
+    ln -sf /dev/stdout /var/log/nginx/access.log && \
+    ln -sf /dev/stderr /var/log/nginx/error.log
+
+WORKDIR /data
+
+RUN useradd -m love
+
+COPY . .
+
+RUN php -v
+
+# Install Composer
+RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer
+RUN chmod 755 /usr/local/bin/composer
+RUN composer install --no-dev
+RUN composer dump-autoload
+
+RUN chown www-data -R storage public/assets documents
+
+EXPOSE 80
+
+ENTRYPOINT ["/data/docker/deploy/entrypoint.sh"]

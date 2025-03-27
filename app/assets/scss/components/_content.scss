@@ -1,0 +1,73 @@
+@use "../abstract" as *;
+
+[content-width] {
+  max-width: var(--content-width);
+  width: 100%;
+
+  &[content-width="widester"] {
+    max-width: $content-width-widester;
+  }
+
+  &[content-width="widest"] {
+    max-width: $content-width-widest;
+  }
+
+  &[content-width="wider"] {
+    max-width: $content-width-wider;
+  }
+
+  &[content-width="wide"] {
+    max-width: $content-width-wide;
+  }
+
+  &[content-width="mid+"],
+  &[content-width="pre-wide"] {
+    max-width: $content-width-mid-plus;
+  }
+
+  &[content-width="mid"] {
+    max-width: $content-width-mid;
+  }
+
+  &[content-width="std+"],
+  &[content-width="pre-mid"] {
+    max-width: $content-width-std-plus;
+  }
+
+  &[content-width="std"] {
+    max-width: $content-width-std;
+  }
+
+  &[content-width="smol+"],
+  &[content-width="pre-std"] {
+    max-width: $content-width-smol-plus;
+  }
+
+  &[content-width="smol"] {
+    max-width: $content-width-smol;
+  }
+
+  &[content-width="smoler"] {
+    max-width: $content-width-smoler;
+  }
+
+  &[content-width="smolest"] {
+    max-width: $content-width-smolest;
+  }
+
+  &[content-width="smolestest"] {
+    max-width: $content-width-smolestest;
+  }
+
+  &[center-content] {
+    margin-inline: auto;
+  }
+}
+
+[content-gap] {
+  gap: $gap-mid;
+
+  @media screen and (max-width: 800px) {
+    gap: $gap-std;
+  }
+}

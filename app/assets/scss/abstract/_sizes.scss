@@ -1,0 +1,79 @@
+$content-width: 1420px;
+$min-content-width: 20em;
+
+$main-full-width: 100%;
+$main-wide-width: 1800px;
+$main-mid-width: 1280px;
+$main-smol-width: 900px;
+$main-single-width: 480px;
+
+/** HEADER **/
+$main-header-width: 150px;
+
+/** SUB HEADER **/
+$sub-menu-width: 20em;
+$sub-menu-width-shrinked: 130px;
+
+/** MOBILE NAVIGATION **/
+$mobile-nav-height: 80px;
+
+/** DEVICE SIZING **/
+$full-hd-max-width: 1920px;
+$tablet-max-width: 1270px;
+$mobile-max-width: 800px;
+
+/** SPACING **/
+$main-distance: 1.2em;
+
+/** GAPS **/
+$gap-smolest: 0.1em;
+$gap-smoler: 0.2em;
+$gap-smol: 0.4em;
+$gap-smol-plus: 0.8em;
+$gap-std: 1.4em;
+$gap-std-plus: 1.6em;
+$gap-mid: 2.4em;
+$gap-mid-plus: 2.8em;
+$gap-wide: 4.2em;
+$gap-wider: 4.8em;
+$gap-wide-plus: 4.8em;
+$gap-widest: 6.2em;
+
+/** BUTTONS **/
+$mbutton-hover-scale: 1.02;
+$mbutton-active-scale: 0.98;
+$mbutton-smoler-size: 2.2em;
+$mbutton-smol-size: 28px;
+$mbutton-std-size: 40px;
+$mbutton-midler-size: 48px;
+$mbutton-mid-size: 56px;
+$mbutton-wide-size: 74px;
+
+/** FONTS **/
+$font-size-smolest: 0.4em;
+$font-size-smoler: 0.6em;
+$font-size-smol: 0.8em;
+$font-size-spec: 0.92em;
+$font-size-std: 1em;
+$font-size-std-plus: 1.1em;
+$font-size-midler: 1.2em;
+$font-size-mid: 1.6em;
+$font-size-mid-plus: 1.8em;
+$font-size-wide: 2.4em;
+$font-size-wider: 2.8em;
+$font-size-widest: 3.2em;
+
+/** CONTENT WIDTHS **/
+$content-width-widester: 1820px;
+$content-width-widest: 1620px;
+$content-width-wider: 1420px;
+$content-width-wide: 1280px;
+$content-width-mid-plus: 1200px;
+$content-width-mid: 1100px;
+$content-width-std-plus: 1000px;
+$content-width-std: var(--content-width);
+$content-width-smol-plus: 760px;
+$content-width-smol: 620px;
+$content-width-smoler: 520px;
+$content-width-smolest: 480px;
+$content-width-smolestest: 350px;

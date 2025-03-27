@@ -1,0 +1,37 @@
+{
+  "name": "bueld/checkout",
+  "description": "Modern checkout system for Büld",
+  "type": "project",
+  "authors": [
+    {
+      "name": "brudermusscode",
+      "email": "justin@heia.kim"
+    }
+  ],
+  "require": {
+    "illuminate/database": "^11.41",
+    "phpmailer/phpmailer": "^6.9",
+    "geoip2/geoip2": "^3.1",
+    "foroco/php-browser-detection": "^2.8",
+    "laravel/serializable-closure": "^2.0",
+    "paragonie/constant_time_encoding": "^3.0",
+    "phpoffice/phpspreadsheet": "^3.9",
+    "dompdf/dompdf": "^3.1",
+    "mpdf/mpdf": "^8.2",
+    "endroid/qr-code": "^6.0"
+  },
+  "autoload": {
+    "files": [
+      "app/functions.php"
+    ],
+    "psr-4": {
+      "Bruder\\": "app/build/",
+      "Bruder\\Bin\\Classes\\": "bin/classes/",
+      "Bruder\\Controller\\": "app/controllers/",
+      "Bruder\\Model\\": "app/models/",
+      "Bruder\\Trait\\": "app/traits/",
+      "Bruder\\Enum\\": "app/enums/",
+      "Bruder\\Authorization\\": "app/authorization/"
+    }
+  }
+}

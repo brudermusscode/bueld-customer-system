@@ -1,0 +1,56 @@
+@use "../abstract" as *;
+
+header {
+  &[main] {
+    position: fixed;
+    left: 0;
+    width: $main-header-width;
+    background: $nav;
+    height: 100svh;
+    padding-inline: 28px;
+    padding-block: 28px;
+
+    nav {
+      display: flex;
+      flex-direction: column;
+      width: calc(100% + 2 * 16px);
+      margin-left: -16px;
+
+      nav-option {
+        content: "";
+        display: flex;
+        align-items: center;
+        font-size: $font-size-spec;
+        font-weight: 600;
+        border-radius: 8px;
+        transition: $trans-cubic;
+        height: 56px;
+        padding-inline: 16px 24px;
+        gap: 12px;
+        cursor: pointer;
+
+        mi {
+          font-size: 24px;
+          font-weight: 300;
+        }
+
+        &:hover {
+          background: $slight-hover;
+        }
+      }
+
+      a[active] {
+        nav-option {
+          border-radius: 32px;
+          background: $active;
+          pointer-events: none;
+          font-weight: 800;
+
+          mi {
+            font-weight: 600;
+          }
+        }
+      }
+    }
+  }
+}

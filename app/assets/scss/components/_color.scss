@@ -1,0 +1,132 @@
+@use "../abstract" as *;
+
+[color] {
+  color: $text;
+
+  &[color="bg"] {
+    color: $bg-single;
+  }
+
+  &[color="nav"] {
+    color: $nav;
+  }
+
+  &[color="invert"],
+  &[color="dynamic-invert"] {
+    color: $text-invert;
+  }
+
+  &[color="active"] {
+    color: $active;
+  }
+
+  &[color="active-text"] {
+    color: $active-text;
+  }
+
+  &[color="company"] {
+    color: $company-color;
+  }
+
+  &[color="verified"] {
+    color: $text;
+  }
+
+  &[color="grey"] {
+    color: $grey;
+  }
+
+  &[color="light-grey"] {
+    color: $grey-light;
+  }
+
+  &[color="green"] {
+    color: $green;
+  }
+
+  &[color="dark-green"] {
+    color: $green-dark;
+  }
+
+  &[color="light-green"] {
+    color: #f3f6ea;
+  }
+
+  &[color="red"] {
+    color: $red;
+  }
+
+  &[color="dark-red"] {
+    color: $red-dark;
+  }
+
+  &[color="light-red"] {
+    color: $red-light;
+  }
+
+  &[color="yellow"] {
+    color: $yellow;
+  }
+
+  &[color="dark-yellow"] {
+    color: $yellow-dark;
+  }
+
+  &[color="light-yellow"] {
+    color: $yellow-light;
+  }
+
+  &[color="blue"] {
+    color: $blue;
+  }
+
+  &[color="orange"] {
+    color: $orange;
+  }
+
+  &[color="dark-orange"] {
+    color: $orange-dark;
+  }
+
+  &[color="dark-blue"] {
+    color: $blue-dark;
+  }
+
+  &[color="light"] {
+    color: $light;
+  }
+
+  &[color="dark"] {
+    color: $dark;
+  }
+
+  &[color="purple"] {
+    color: $purple;
+  }
+
+  &[color="white"] {
+    color: white;
+  }
+
+  &[color="pink"] {
+    color: $pink;
+  }
+
+  &[color="opacied"] {
+    &[dark] {
+      color: rgba(0, 0, 0, 0.12);
+    }
+
+    &[light] {
+      color: rgba(255, 255, 255, 0.12);
+    }
+  }
+
+  &[color="discord-blue"] {
+    color: $discord-blue;
+  }
+
+  &[color="google-blue"] {
+    color: #4285f4;
+  }
+}

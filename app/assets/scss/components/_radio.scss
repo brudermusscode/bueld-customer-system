@@ -1,0 +1,105 @@
+@use "../abstract" as *;
+
+mradio {
+  content: "";
+
+  radio-option {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 18px;
+    cursor: pointer;
+
+    &:hover {
+      background: $slight-hover;
+    }
+
+    & > mi::before,
+    & > mi {
+      transition: none;
+    }
+
+    &[active] {
+      background: $active;
+      color: $active-text;
+      animation: activate-drop 0.4s $cubic forwards;
+      font-weight: 800;
+
+      & > mi {
+        content: "" !important;
+        font-size: 0px !important;
+
+        &::before {
+          display: block;
+          content: "done";
+          font-size: 32px;
+          color: $green;
+          border-radius: 50%;
+          height: 36px;
+          width: 36px;
+          background: $bg;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+        }
+      }
+
+      &:hover {
+        background: $active-hover;
+      }
+    }
+  }
+
+  @keyframes activate-drop {
+    from {
+      scale: 1;
+    }
+
+    50% {
+      scale: 0.98;
+    }
+
+    70% {
+      scale: 1.02;
+    }
+
+    to {
+      scale: 1;
+    }
+  }
+
+  &[size="wide"] {
+    radio-option {
+      height: $mbutton-wide-size;
+      max-height: $mbutton-wide-size;
+      min-height: $mbutton-wide-size;
+
+      mi {
+        font-size: 24px;
+      }
+
+      &:not([icon-only]) {
+        padding-inline: 38px;
+      }
+
+      &[has-icon]:not([icon-only]) {
+        display: flex;
+        gap: 10px;
+
+        &[has-icon="left"] {
+          padding-inline: 28px 38px;
+        }
+
+        &[has-icon="right"] {
+          padding-inline: 38px 28px;
+        }
+      }
+
+      &[icon-only] {
+        width: $mbutton-wide-size;
+        max-width: $mbutton-wide-size;
+        min-width: $mbutton-wide-size;
+      }
+    }
+  }
+}

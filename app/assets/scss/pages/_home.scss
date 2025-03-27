@@ -1,0 +1,29 @@
+@use "../abstract" as *;
+
+[typer] {
+  height: 4.8em;
+  flex-direction: row;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: $gap-std;
+  // padding-block: 4.2em;
+  padding-inline: 1.2em;
+  background: $box2;
+
+  &[typer="smol"] {
+    padding-inline: 1.2em 1.8em;
+  }
+
+  [icon] {
+    background: $bg;
+    height: 1.8em;
+    width: 1.8em;
+    font-size: $font-size-mid;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: $text;
+  }
+}

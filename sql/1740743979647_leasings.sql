@@ -1,0 +1,3 @@
+ALTER TABLE leasings
+  MODIFY duration VARCHAR(12) NULL,
+  MODIFY status TEXT NULL;

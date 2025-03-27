@@ -1,0 +1,52 @@
+@use "../abstract" as *;
+
+pagination {
+  display: flex;
+  align-items: center;
+  gap: $gap-smol;
+
+  pagination-option {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 42px;
+    width: 42px;
+    border-radius: 8px;
+    border: 1px solid $slight-hover;
+
+    &:hover {
+      opacity: 1;
+      background: $slight-hover;
+    }
+
+    p {
+      font-size: $font-size-std;
+      font-weight: 600;
+    }
+
+    @media screen and (max-width: 700px) {
+      height: 48px;
+      width: 48px;
+    }
+
+    @media screen and (max-width: 500px) {
+      height: 32px;
+      width: 32px;
+    }
+
+    &[navigation] {
+      background: transparent;
+      border: 1px solid $box3;
+    }
+
+    &[active] {
+      opacity: 1;
+      pointer-events: none;
+      border-radius: 50%;
+      background: $active;
+      color: $active-text;
+      border: 1px solid $active;
+      pointer-events: none;
+    }
+  }
+}

@@ -1,0 +1,44 @@
+@charset "UTF-8";
+
+// * import abstracts index file
+@use "abstract";
+
+// * import components
+@use "components/background";
+@use "components/color";
+@use "components/content";
+@use "components/button-model";
+@use "components/scrollbars";
+@use "components/animations";
+@use "components/elements";
+@use "components/responder";
+@use "components/input";
+@use "components/img";
+@use "components/box-model";
+@use "components/loader";
+@use "components/picture";
+@use "components/overlay";
+@use "components/tooltip";
+@use "components/select-model";
+@use "components/radio";
+@use "components/toggle-switch";
+@use "components/theme-switcher";
+@use "components/sub-menu";
+@use "components/mchip";
+@use "components/pagination";
+@use "components/app";
+@use "components/prompt";
+
+// * import layout
+@use "layout/header";
+
+// * import pages
+@use "pages/home";
+@use "pages/repair-order";
+@use "pages/customer";
+
+// Responsiveness.
+@use "layout/responsiveness.scss";
+
+// Custom rules to overwrite.
+@use "components/overwrite";

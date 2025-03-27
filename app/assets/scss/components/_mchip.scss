@@ -1,0 +1,52 @@
+@use "../abstract" as *;
+
+mchip {
+  content: "";
+  height: 34px;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding-inline: 16px;
+  font-size: 18px;
+  font-weight: 600;
+
+  &[tag] {
+    pointer-events: none;
+  }
+
+  &[outlined] {
+    &:hover {
+      background: $slight-hover;
+    }
+
+    &:active {
+      background: $hover;
+    }
+
+    &[active] {
+      background: $active;
+      border: 1px solid $active;
+      color: $active-text;
+
+      &:hover {
+        background: $active-hover;
+        border: 1px solid $active-hover;
+      }
+    }
+  }
+
+  &:not([disabled]) {
+    cursor: pointer;
+  }
+
+  & > mi {
+    font-size: 22px;
+  }
+
+  &[has-icon="left"] {
+    padding-left: 8px;
+    padding-right: 16px;
+  }
+}

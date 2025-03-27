@@ -1,0 +1,189 @@
+@use "../abstract" as *;
+
+[background] {
+  &[background="transparent"] {
+    background: transparent;
+  }
+
+  &[background="lilac-gradient"] {
+    background: rgb(116, 25, 254);
+    background: linear-gradient(
+      35deg,
+      rgba(116, 25, 254, 1) 0%,
+      rgba(97, 69, 246, 1) 34%,
+      rgba(151, 95, 255, 1) 65%,
+      rgba(210, 134, 255, 1) 100%
+    );
+  }
+
+  &[background="pink-gradient"] {
+    background: #ff2695;
+    background: linear-gradient(to right, #ff2695 0%, #6b26fe 100%);
+  }
+
+  &[background="bg"] {
+    background: $bg;
+  }
+
+  &[background="dynamic"] {
+    background: $box;
+  }
+
+  &[background="dynamic-invert"],
+  &[background="invert"] {
+    background: $box-invert;
+  }
+
+  &[background="dynamic"] {
+    background: $box;
+  }
+
+  &[background="hover"] {
+    background: $hover;
+  }
+
+  &[background="hover-invert"] {
+    background: $hover-invert;
+  }
+
+  &[background="slighter"] {
+    background: $slighter-hover;
+  }
+
+  &[background="slight"] {
+    background: $slight-hover;
+  }
+
+  &[background="slight-invert"] {
+    background: $slight-hover-invert;
+  }
+
+  &[background="active"] {
+    background: $active;
+  }
+
+  &[background="company"] {
+    background: $company-color;
+  }
+
+  &[background="light"] {
+    background: $light;
+  }
+
+  &[background="dark"] {
+    background: $dark;
+  }
+
+  &[background="pink"] {
+    background: $pink;
+  }
+
+  &[background="light-pink"] {
+    background: $pink-light;
+  }
+
+  &[background="dark-pink"] {
+    background: $pink-dark;
+  }
+
+  &[background="dark-green"] {
+    background: $green-dark;
+  }
+
+  &[background="green"] {
+    background: $green;
+  }
+
+  &[background="light-green"] {
+    background: $green-light;
+  }
+
+  &[background="light-grey"] {
+    background: rgba(0, 0, 0, 0.04);
+  }
+
+  &[background="light-blue"] {
+    background: $blue-light;
+  }
+
+  &[background="dark-blue"] {
+    background: $blue-dark;
+  }
+
+  &[background="blue"] {
+    background: $blue;
+  }
+
+  &[background="discord-blue"] {
+    background: $discord-blue;
+  }
+
+  &[background="paypal-blue"] {
+    background: $paypal-blue;
+  }
+
+  &[background="youtube-red"] {
+    background: $youtube-red;
+  }
+
+  &[background="red"] {
+    background: $red;
+  }
+
+  &[background="light-red"] {
+    background: $red-light;
+  }
+
+  &[background="yellow"] {
+    background: $yellow;
+  }
+
+  &[background="dark-yellow"] {
+    background: $yellow-dark;
+  }
+
+  &[background="slight-yellow"],
+  &[background="light-yellow"] {
+    background: $yellow-light;
+  }
+
+  &[background="orange"] {
+    background: $orange;
+  }
+
+  &[background="dark-orange"] {
+    background: $orange-dark;
+  }
+
+  &[background="light-orange"] {
+    background: $orange-light;
+  }
+
+  &[background="white"] {
+    background: white;
+  }
+
+  &[background="purple"] {
+    background: $purple;
+  }
+
+  &[background="lilac"] {
+    background: #351a5c;
+  }
+
+  &[background="slight-red"] {
+    background: $red-light;
+  }
+
+  &[background="slight-green"] {
+    background: $green-light;
+  }
+
+  &[background="slight-blue"] {
+    background: $blue-light;
+  }
+
+  &[background="slight-orange"] {
+    background: $orange-light;
+  }
+}

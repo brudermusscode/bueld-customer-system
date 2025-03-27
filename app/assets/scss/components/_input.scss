@@ -1,0 +1,250 @@
+@use "../abstract" as *;
+
+[input] {
+  position: relative;
+
+  &[material] {
+    transition: $trans-cubic;
+
+    input {
+      border: none;
+      border-bottom: 4px solid $box3;
+      border-radius: 6px 6px 0 0;
+      outline: none;
+      padding-inline: 16px;
+      padding-block: 16px;
+      width: 100%;
+      color: $text;
+      background: $box2;
+      transition: $trans-cubic;
+      font-size: $font-size-std;
+
+      &[auto-height] {
+        resize: none;
+      }
+
+      &:not(:placeholder-shown) {
+        border-color: $company-color;
+      }
+
+      &::placeholder {
+        opacity: 0.8;
+      }
+
+      &:focus {
+        border-color: $company-color;
+      }
+    }
+
+    &[has-text] {
+      input {
+        padding-right: 6em;
+      }
+
+      [input-extra-text] {
+        position: absolute;
+        right: 2.8em;
+        top: 50%;
+        translate: 0 -50%;
+      }
+    }
+
+    &[has-delete] {
+      [input-delete] {
+        position: absolute;
+        top: 50%;
+        translate: 0 -50%;
+        right: 0;
+      }
+    }
+
+    &[has-icon] {
+      input {
+        padding-left: 52px;
+      }
+
+      > picture:first-child,
+      > mi:first-child {
+        position: absolute;
+        font-size: 1.2em;
+        opacity: 0.6;
+        z-index: 2;
+        left: 16px;
+        top: calc(50% - 2px);
+        translate: 0 -50%;
+      }
+
+      &[has-icon="right"] {
+        input {
+          padding-left: 16px;
+          padding-right: 52px;
+        }
+
+        > picture:first-child,
+        > mi:first-child {
+          left: initial;
+          right: 16px;
+        }
+      }
+    }
+
+    &[appear] {
+      &[appear="lighter"] {
+        input {
+          background: $box3;
+        }
+      }
+
+      &[appear="darker"] {
+        input {
+          background: $box;
+        }
+      }
+    }
+
+    &[has-search] {
+      &[active] {
+        border-radius: 24px 24px 0 0;
+        box-shadow: var(--mio-theme-elevation-1);
+
+        input {
+          position: relative;
+          border-radius: 24px 24px 0 0;
+          border-bottom: 4px solid $box;
+          background: $box;
+          z-index: 1;
+        }
+
+        & > mi {
+          z-index: 2;
+        }
+      }
+
+      [search] {
+        background: $box;
+        border-radius: 0 0 28px 28px;
+        box-shadow: var(--mio-theme-elevation-1);
+        position: absolute;
+        top: 100%;
+        left: 0;
+        min-width: 120px;
+        width: 100%;
+        padding: 8px;
+        padding-top: 0px;
+        visibility: hidden;
+        opacity: 0;
+
+        &[active] {
+          visibility: visible;
+          opacity: 1;
+        }
+
+        [search-none] {
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          gap: $gap-smol;
+          padding-block: 0.6em;
+        }
+
+        [search-element] {
+          padding-inline: 12px;
+          height: 38px;
+          display: flex;
+          align-items: center;
+          cursor: pointer;
+
+          &[new] {
+            height: 48px;
+            border-radius: 42px;
+            justify-content: center;
+            gap: $gap-smoler;
+            color: $green-dark;
+          }
+
+          &:hover {
+            background: $slight-hover;
+          }
+        }
+      }
+    }
+  }
+
+  &[large] {
+    input {
+      line-height: 3.2em;
+    }
+
+    &[has-icon] {
+      input {
+        padding-left: 2.4em;
+      }
+    }
+  }
+}
+
+textarea[clean-wide] {
+  color: $text;
+  background: transparent;
+  border: none;
+  padding: 0;
+  margin-top: 0.2em;
+  margin-bottom: 0.2em;
+  opacity: 1;
+  resize: none;
+
+  @extend [text], [midler];
+
+  &::-moz-placeholder,
+  &::-webkit-input-placeholder,
+  &::placeholder {
+    opacity: 0.6;
+  }
+}
+
+[textarea] {
+  textarea {
+    &[material] {
+      border: none;
+      border-bottom: 4px solid t(box);
+      border-radius: 6px 6px 0 0;
+      outline: none;
+      padding-inline: 16px;
+      padding-block: 16px;
+      width: 100%;
+      color: $text;
+
+      &[auto-resize] {
+        resize: none;
+        height: 72px;
+        overflow: hidden;
+      }
+
+      &:placeholder-shown {
+        opacity: 0.8;
+      }
+
+      &:not(:placeholder-shown) {
+        border-color: t(active);
+      }
+
+      &::placeholder {
+        opacity: 0.8;
+      }
+
+      &:focus {
+        border-color: t(active);
+        opacity: 1;
+      }
+
+      &[clean] {
+        border: none;
+        background: transparent;
+      }
+    }
+  }
+
+  textarea {
+    background: $slight-hover;
+  }
+}

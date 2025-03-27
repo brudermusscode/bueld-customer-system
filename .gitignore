@@ -1,0 +1,29 @@
+/vendor
+/node_modules
+!/app/models
+.env
+composer.lock
+package-lock.json
+/storage/logs/*
+!/storage/logs
+!/storage/logs/.gitkeep
+# /files
+/bin
+/storage/nginx.pid
+/sql/last_migration
+
+# documents
+/documents/tmp/*
+!/documents/tmp/.gitkeep
+
+/documents/orders/bike/*
+!/documents/orders/bike/.gitkeep
+
+/documents/orders/sewing/*
+!/documents/orders/sewing/.gitkeep
+
+push.sh
+easy-setup.sh
+/files
+/config/keys/*
+!/config/keys/.gitkeep
