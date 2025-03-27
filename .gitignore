@@ -2,6 +2,7 @@
 /node_modules
 !/app/models
 .env
+.DS_Store
 composer.lock
 package-lock.json
 /storage/logs/*
